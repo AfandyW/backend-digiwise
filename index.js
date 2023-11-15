@@ -3,9 +3,9 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import developRouter from "./src/routes/developRoutes.js";
-import swaggerUi from "swagger-ui-express";
-import swaggerJsdoc from "swagger-jsdoc";
-import apiDocs from "./apidocs.json" assert { type: "json" };
+// import swaggerUi from "swagger-ui-express";
+// import swaggerJsdoc from "swagger-jsdoc";
+// import apiDocs from "./apidocs.json" assert { type: "json" };
 
 const db = process.env.DATABASE_URL;
 
@@ -31,8 +31,8 @@ database.once("connected", () => {
 app.use("/", developRouter);
 
 // documentation API with swagger
-const specs = swaggerJsdoc(apiDocs);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
+// const specs = swaggerJsdoc(apiDocs);
+// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
 app.listen(port, () => {
   console.log("server listening on part", +port);
